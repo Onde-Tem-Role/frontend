@@ -1,0 +1,10 @@
+#img-bg {
+    background-image: url(https://i.imgur.com/jkCagFk.jpg);
+    min-height: 0vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+ 
+  .row {padding-top: 5%;
+  }
