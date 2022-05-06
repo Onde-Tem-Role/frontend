@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Indie+Flower&family=Koulen&family=Open+Sans:ital,wght@0,300;1,400&family=Ubuntu:wght@300&display=swap');
+
+
 #img-bg {
     background-image: url(https://i.imgur.com/B5HQ94B.gif);
     min-height: 0vh;
@@ -5,7 +8,38 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
- 
+
   .row {padding-top: 5%;
   }
 
+  .wrapper {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+
+  .typing-demo {
+    width: 22ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 80px;
+    position: sticky;
+    color:rgba(255, 255, 255, 0.849);
+    text-shadow: 0px 4px 3px #000000;
+   letter-spacing: 2px;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
