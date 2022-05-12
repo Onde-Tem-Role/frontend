@@ -8,18 +8,24 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  nome = environment.nome;
-  foto = environment.foto;
 
-  constructor(private router: Router) {}
+  nome = environment.nome
+  foto = environment.foto
+  id = environment.id
 
-  ngOnInit(): void {
+  constructor(
+    private router: Router
+  ) { }
+
+  ngOnInit(){
   }
-  sair() {
-    this.router.navigate(['/entrar']);
-    environment.token = '';
-    environment.foto = '';
-    environment.id = 0;
-    environment.nome = '';
+
+  sair(){
+    environment.token = ''
+    environment.nome = ''
+    environment.foto = ''
+    environment.id = 0
+    this.router.navigate(['/login'])
   }
+
 }
