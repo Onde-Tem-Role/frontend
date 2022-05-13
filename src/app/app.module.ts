@@ -20,6 +20,7 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
 import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component';
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PostagemDeleteComponent,
     TemaDeleteComponent,
     AlertasComponent,
+    UsuarioEditComponent,
 
   ],
   imports: [

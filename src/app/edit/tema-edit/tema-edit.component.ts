@@ -14,11 +14,11 @@ export class TemaEditComponent implements OnInit {
 
   tema: Tema = new Tema()
 
-  constructor(  
+  constructor(
     private temaService: TemaService,
     private router: Router,
     private route: ActivatedRoute, //pega a rota que está ativa.
-    private alertas: AlertasService 
+    private alertas: AlertasService
     ) { }
 
   ngOnInit() {
@@ -40,7 +40,6 @@ atualizar(){
   this.temaService.putTema(this.tema).subscribe((resp: Tema)=>{
     this.tema = resp
     this.alertas.showAlertSuccess('Tema atualizado com sucesso!')
-    alert('Tema atualizado com sucesso!')
     this.router.navigate(['/tema'])
     })
   }

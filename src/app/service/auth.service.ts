@@ -36,6 +36,10 @@ export class AuthService {
     return this.http.post<Usuario>('https://ondetemrolee.herokuapp.com/usuarios/cadastrar', user)
  }
 
+ atualizar(usuario: Usuario):Observable<Usuario>{
+  return this.http.put<Usuario>('https://ondetemrolee.herokuapp.com/usuarios/atualizar', usuario, this.token)
+}
+
  logado(){
    let ok: boolean = false
 
