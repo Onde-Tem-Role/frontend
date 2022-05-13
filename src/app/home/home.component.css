@@ -1,45 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Indie+Flower&family=Koulen&family=Open+Sans:ital,wght@0,300;1,400&family=Ubuntu:wght@300&display=swap');
 
+* {
+  margin: 0;
+}
 
 #img-bg {
-    background-image: url(https://i.imgur.com/B5HQ94B.gif);
-    min-height: 0vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
+  background-image: url(https://i.imgur.com/NK7enpZ.png);
+  min-height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
 
-  .row {padding-top: 5%;
-  }
+nav {
+  background-color: #095295;
+}
 
-  .wrapper {
-    height: 100vh;
-    display: grid;
-    place-items: center;
-  }
+.col-md-10 {
+  padding-top: 20%;
+  margin: 0;
+}
 
-  .typing-demo {
-    width: 22ch;
-    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 80px;
-    position: sticky;
-    color:rgba(255, 255, 255, 0.849);
-    text-shadow: 0px 4px 3px #000000;
-   letter-spacing: 2px;
-  }
 
-  @keyframes typing {
-    from {
-      width: 0
-    }
-  }
+.typing-demo {
+  width: 18ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow:hidden;
+  border-right: 3px solid;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 50px;
+  position:sticky;
+  color: white;
+  text-shadow: 0px 4px 3px #000000;
+ letter-spacing: 2px;
+}
 
-  @keyframes blink {
-    50% {
-      border-color: transparent
-    }
+@keyframes typing {
+  from {
+    width: 0
   }
+}
+
+@keyframes blink {
+  20% {
+    border-color: transparent
+  }
+}
+
+
+h1, p {
+  color: white;
+  text-align:center;
+}
+
+.container > footer {
+  padding-top: 20%;
+  color: white;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+ul.social-network {
+  list-style: none;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0;
+}
+
+.fa {
+  font-size: 20pt;
+  color: white;
+  padding: 1vh;
+}
+
+.fa-facebook-square:hover {
+  color: #3b5998;
+}
+
+.fa-instagram:hover {
+  color: #c13584;
+}
+
+.fa-linkedin-square:hover {
+  color: #0072b1;
+}
+
+.fa-whatsapp:hover{
+  color: #34af23;
+}
