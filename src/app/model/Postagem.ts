@@ -10,7 +10,7 @@ export class Postagem{
   public foto: string;
   public contato: string;
   public valor: number;
-  public tipo: string;
+  public tipoTurismo: string;
   public tema: Tema;
   public usuario: Usuario;
 
