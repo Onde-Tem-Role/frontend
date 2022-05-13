@@ -1,6 +1,7 @@
 import {HttpClientModule} from '@angular/common/http'
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -21,6 +22,7 @@ import { TemaDeleteComponent } from './delete/tema-delete/tema-delete.component'
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -45,8 +47,9 @@ import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ModalModule.forRoot()
-
+    ModalModule.forRoot(),
+    OrderModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [{
     provide:LocationStrategy,

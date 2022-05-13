@@ -48,4 +48,15 @@ export class AuthService {
    }
    return ok
     }
+
+     admin(){
+       let ok: boolean = false
+
+       if (environment.tipo == 'adm' || environment.tipo === 'guia'){
+         ok = true
+       }
+
+       return ok
+     }
+
   }
