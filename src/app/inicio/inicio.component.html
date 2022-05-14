@@ -1,3 +1,4 @@
+<!-- !Inicio tela de inicio -->
 <div class="container-fluid">
 
   <div class="row d-flex align-items-center bg-secondary">
@@ -27,6 +28,7 @@
   </div>
 </div>
 
+
 <div class="container mb-5 mt-5" id="postagens">
   <nav>
       <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
@@ -38,16 +40,28 @@
           <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por Tema</a>
       </div>
     </nav>
+ <!-- !Fim tela de inicio -->
 
+ <!-- !Inicio nav -->
     <div class="tab-content mt-5" id="nav-tabContent">
-
+      <!--!Inicio todas as postagem-->
       <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" id="tipo" placeholder="Digite um tipo de turismo de postagem para pesquisar" [(ngModel)]='tituloPost' (keyup)='findByTipoTurismo()'>
+            </div>
+          </div>
+        </div>
+
+
         <div class="card-columns">
-          <div class="card text-center" *ngFor='let item of listaPostagem'>
+          <div class="card text-center" *ngFor='let item of listaPostagem | orderBy : key : reverse'>
             <div class="card-body">
               <img class="rounded-circle
             " [src]="item.foto"
-              onerror="this.src = 'https://i.imgur.com/rNUV85x.png'"
+              onerror="this.src = 'https://i.imgur.com/B5HQ94B.gif'"
               alt="Foto do usuario" width="35px" height="35px">
               <h5 class="card-title m-0">{{item.tipoTurismo}}</h5>
               <small class="text-muted"> Tema: {{item.tema.tipo}}</small>
@@ -59,20 +73,20 @@
               </small></p>
 
               <p class="card-text"><small class="text-muted">
-                by: {{item.usuario.nome}}
+                by: {{usuario.nome}}
               </small></p>
             </div>
           </div>
         </div>
 
       </div>
+      <!--!Fim todas as postagem-->
 
-
-
+      <!--!Inicio minhas postagens-->
       <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
         <div class="card-columns">
-          <div class="card text-center" *ngFor='let item of usuario.postagem'>
+          <div class="card text-center" *ngFor='let item of usuario.postagem | orderBy : key : reverse'>
             <div class="card-body">
               <h5 class="card-title m-0">{{item.local}}</h5>
               <p class="card-text mt-3">{{item.tipoTurismo}}</p>
@@ -89,17 +103,28 @@
         </div>
 
       </div>
+      <!--!Fim minhas postagens-->
 
+      <!--!Inicio postagem tema-->
       <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+
+        <div class="row d-flex justify-content-center mt-5 mb-5">
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" id="tipo" placeholder="Digite um tema para pesquisar" [(ngModel)]='nomeTema' (keyup)='findByTipoTema()'>
+            </div>
+          </div>
+        </div>
+
+
         <div class="card-columns" *ngFor='let tema of listaTemas'>
-          <div class="card text-center" *ngFor='let item of tema.postagem'>
+          <div class="card text-center" *ngFor='let item of tema.postagem | orderBy : key : reverse'>
             <div class="card-body">
               <img class="rounded-circle
               " [src]="item.foto"
-                onerror="this.src = 'https://i.imgur.com/rNUV85x.png'"
+                onerror="this.src = 'https://i.imgur.com/B5HQ94B.gif'"
                 alt="Foto do usuario" width="35px" height="35px">
-                <!--<small class="text-muted"> Tema: {{item.tema.tipo}}</small>-->
-                <h5 class="card-title m-0">{{item.tema.tipo}}</h5>
+                <h5 class="card-title m-0">{{tema.tipo}}</h5>
                 <p class="card-title m-0">{{item.tipoTurismo}}</p>
                 <p class="card-text mt-3">{{item.texto}}</p>
                 <p class="card-text mt-3">{{item.contato}}</p>
@@ -109,7 +134,7 @@
               </small></p>
 
               <p class="card-text"><small class="text-muted">
-                by: {{item.usuario.nome}}
+                by: {{usuario.nome}}
               </small></p>
 
             </div>
@@ -117,11 +142,13 @@
         </div>
 
       </div>
+      <!--!Fim postagem tema-->
     </div>
   </div>
+<!-- !Inicio nav -->
 
 
-<!-- Modal -->
+<!-- !Inicio Modal -->
 <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -135,7 +162,7 @@
 
        <div class="form-group">
           <label for="local">Local</label>
-          <input [(ngModel)]="postagem.local" type="text" class="form-control" id="titulo" placeholder="Digite o título">
+          <input [(ngModel)]="postagem.local" type="text" class="form-control" id="local" placeholder="Digite o título">
       </div>
 
       <div class="form-group">
@@ -144,30 +171,30 @@
       </div>
 
       <div class="form-group">
-        <label for="texto">Foto</label>
+        <label for="foto">Foto</label>
         <input [(ngModel)]="postagem.foto" class="form-control" name="texto" id="foto" rows="3">
      </div>
 
      <div class="form-group">
-      <label for="texto">Contato</label>
-      <input [(ngModel)]="postagem.contato" type="tel" placeholder="11 99999-9999" class="form-control" name="texto" id="contato" rows="3">
+      <label for="contato">Contato</label>
+      <input [(ngModel)]="postagem.contato"  type="tel" mask="(00) 00000-0000" placeholder="11 99999-9999" class="form-control" name="texto" id="contato" rows="3">
    </div>
 
    <div class="form-group">
-    <label for="texto">Valor</label>
-    <input [(ngModel)]="postagem.valor" class="form-control" name="texto" id="valor" rows="3">
+    <label for="valor">Valor</label>
+    <input [(ngModel)]="postagem.valor"  prefix="R$" mask="000,00" class="form-control" name="texto" id="valor" rows="3">
  </div>
 
  <div class="form-group">
-  <label for="texto">Tipo Turismo*</label>
-  <select [(ngModel)]="postagem.tipoTurismo" class="form-control" name="texto" id="TipoTurismo" rows="3">
+  <label for="tipoTurismo">Tipo Turismo*</label>
+  <select [(ngModel)]="postagem.tipoTurismo" class="form-control" name="texto" id="tipoTurismo" rows="3">
     <option>Virtual</option>
     <option>Físico</option>
   </select>
 </div>
 
       <div class="form-group">
-          <label for="texto">Escolha o tema ou <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:</label>
+          <label for="tema">Escolha o tema ou <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:</label>
           <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
               <option *ngFor="let item of listaTemas" value="{{item.id}}">
                {{item.tipo}}</option>
@@ -176,9 +203,10 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" >Cancelar</button>
         <button type="button" class="btn btn-success"(click)="publicar()" data-dismiss="modal">Publicar</button>
       </div>
     </div>
   </div>
 </div>
+<!-- !Fim Modal -->

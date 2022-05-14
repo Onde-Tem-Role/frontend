@@ -16,10 +16,13 @@ export class TemaComponent implements OnInit {
   tema:  Tema = new Tema()
   listaTemas: Tema[]
 
+  key = 'id'
+  reverse = true
+
     constructor(
     private router: Router,
     private temaService: TemaService,
-    private alertas: AlertasService  
+    private alertas: AlertasService
     ) { }
 
   ngOnInit(){
@@ -27,6 +30,11 @@ export class TemaComponent implements OnInit {
       this.alertas.showAlertInfo('Sua seção expirou, faça o login novamente.')
       this.router.navigate(['/login'])
     }
+
+     if(environment.tipo != 'guia') {
+       this.alertas.showAlertInfo('Perfil não autorizado')
+       this.router.navigate(['/inicio'])
+     }
 
     this.findAllTemas()
   }

@@ -23,6 +23,10 @@ export class PostagemService {
     return this.http.get<Postagem>(`https://ondetemrolee.herokuapp.com/postagem/${id}`, this.token)
   }
 
+  getBytipoTurismo(tipoTurismo: string): Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`https://ondetemrolee.herokuapp.com/postagem/tipoTurismo/${tipoTurismo}`, this.token)
+  }
+
   postPostagem(postagem: Postagem) : Observable<Postagem>{
     return this.http.post<Postagem>('https://ondetemrolee.herokuapp.com/postagem', postagem, this.token)
   }

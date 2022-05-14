@@ -36,6 +36,14 @@ export class AuthService {
     return this.http.post<Usuario>('https://ondetemrolee.herokuapp.com/usuarios/cadastrar', user)
  }
 
+ atualizar(usuario: Usuario):Observable<Usuario>{
+  return this.http.put<Usuario>('https://ondetemrolee.herokuapp.com/usuarios/atualizar', usuario, this.token)
+}
+
+deleteUsuario(id: number) {
+  return this.http.delete(`https://ondetemrolee.herokuapp.com/usuarios/${id}`, this.token)
+}
+
  logado(){
    let ok: boolean = false
 
@@ -44,4 +52,15 @@ export class AuthService {
    }
    return ok
     }
+
+     admin(){
+       let ok: boolean = false
+
+       if (environment.tipo === 'guia' || environment.tipo === 'admin'){
+         ok = true
+       }
+
+       return ok
+     }
+
   }

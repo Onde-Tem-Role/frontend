@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   usuarioLogin: UsuarioLogin = new UsuarioLogin();
 
   constructor(
-    private auth: AuthService, 
+    private auth: AuthService,
     private router: Router,
     private alertas: AlertasService
     ) {}
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         environment.nome = this.usuarioLogin.nome;
         environment.foto = this.usuarioLogin.foto;
         environment.token = this.usuarioLogin.token;
+        environment.tipo = this.usuarioLogin.tipo;
         this.router.navigate(['/inicio']);
       },
       error: (erro) => {

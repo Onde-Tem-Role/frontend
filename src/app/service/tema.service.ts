@@ -16,11 +16,15 @@ export class TemaService {
   }
 
   getAllTema():Observable<Tema[]>{
-    return this.http.get<Tema[]>('https://ondetemrolee.herokuapp.com/tema', this.token)  
+    return this.http.get<Tema[]>('https://ondetemrolee.herokuapp.com/tema', this.token)
   }
 
   getByIdTema(id: number): Observable<Tema>{
     return this.http.get<Tema>(`https://ondetemrolee.herokuapp.com/tema/${id}`, this.token)
+  }
+
+  getByTipo(tipo: string): Observable<Tema[]>{
+    return this.http.get<Tema[]>(`https://ondetemrolee.herokuapp.com/tema/tipo/${tipo}`, this.token)
   }
 
   postTema(tema: Tema): Observable<Tema>{

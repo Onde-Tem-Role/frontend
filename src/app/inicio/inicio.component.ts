@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alerta.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -16,25 +17,31 @@ import { TemaService } from '../service/tema.service';
 export class InicioComponent implements OnInit {
   postagem: Postagem = new Postagem()
   listaPostagem: Postagem[]
+  tituloPost: string
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  nomeTema:string
 
   usuario: Usuario = new Usuario()
   idUsuario = environment.id
 
+  key = 'data'
+  reverse = true
+
   constructor(
     private router: Router,
     private temaService: TemaService,
-    private authService: AuthService,
-    private postagemService: PostagemService
+    public authService: AuthService,
+    private postagemService: PostagemService,
+    private alerta: AlertasService
   ) { }
 
   ngOnInit() {
 
     if(environment.token == "") {
-      this.router.navigate(["/login"])
+      this.router.navigate(["/home"])
     }
 
     this.authService.refreshToken();
@@ -48,12 +55,21 @@ export class InicioComponent implements OnInit {
     })
   }
 
+   findByTipoTurismo(){
+     if(this.tituloPost == ''){
+       this.getAllPostagens()
+     } else {
+       this.postagemService.getBytipoTurismo(this.tituloPost).subscribe((resp: Postagem[]) => {
+         this.listaPostagem = resp
+       })
+     }
+   }
+
   findByIdTema() {
     this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
       this.tema = resp
     })
   }
-
   getAllPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagem = resp
@@ -73,15 +89,23 @@ export class InicioComponent implements OnInit {
     this.usuario.id = this.idUsuario
     this.postagem.usuario = this.usuario
 
-     console.log(this.postagem)
-    
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert("Postagem realizada com sucesso")
+      this.alerta.showAlertSuccess('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagens()
       this.getAllTemas()
     })
   }
 
-}
+   findByTipoTema(){
+     if(this.nomeTema == ''){
+       this.getAllTemas()
+     } else {
+       this.temaService.getByTipo(this.nomeTema).subscribe((resp: Tema[]) => {
+         this.listaTemas = resp
+        })
+      }
+     }
+  }
+
