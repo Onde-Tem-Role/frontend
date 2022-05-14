@@ -39,14 +39,15 @@
         <label for="tipo">Tipo de Usuário</label>
         <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
           <option>Selecione um tipo de usuário:</option>
-          <option value="adm">Guia</option>
-          <option value="normal">Turista</option>
+          <option value="guia">Guia</option>
+          <option value="turista">Turista</option>
         </select>
       </div>
 
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-danger mr-4" routerLink='/inicio'>Cancelar</button>
-        <button type="submit" class="btn btn-success" (click)='atualizar()' >Atualizar</button>
+        <button type="submit" class="btn btn-warning mr-4" routerLink='/inicio'>Cancelar</button>
+        <button type="submit" class="btn btn-success mr-4" (click)='atualizar()' >Atualizar</button>
+        <button type="submit" class="btn btn-danger" [routerLink]="['/usuario-delete', usuario.id]" >Deletar</button>
       </div>
 
     </div>

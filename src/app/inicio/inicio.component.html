@@ -61,7 +61,7 @@
             <div class="card-body">
               <img class="rounded-circle
             " [src]="item.foto"
-              onerror="this.src = 'https://i.imgur.com/rNUV85x.png'"
+              onerror="this.src = 'https://i.imgur.com/B5HQ94B.gif'"
               alt="Foto do usuario" width="35px" height="35px">
               <h5 class="card-title m-0">{{item.tipoTurismo}}</h5>
               <small class="text-muted"> Tema: {{item.tema.tipo}}</small>
@@ -122,7 +122,7 @@
             <div class="card-body">
               <img class="rounded-circle
               " [src]="item.foto"
-                onerror="this.src = 'https://i.imgur.com/rNUV85x.png'"
+                onerror="this.src = 'https://i.imgur.com/B5HQ94B.gif'"
                 alt="Foto do usuario" width="35px" height="35px">
                 <h5 class="card-title m-0">{{tema.tipo}}</h5>
                 <p class="card-title m-0">{{item.tipoTurismo}}</p>
@@ -194,7 +194,7 @@
 </div>
 
       <div class="form-group">
-          <label for="tema">Escolha o tema <span > ou <a data-dismiss="modal" routerLink="/tema" >cadastre um novo</a></span>:</label>
+          <label for="tema">Escolha o tema ou <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a>:</label>
           <select name="tema" id="tema" class="form-control" [(ngModel)]="idTema" (change)="findByIdTema()">
               <option *ngFor="let item of listaTemas" value="{{item.id}}">
                {{item.tipo}}</option>

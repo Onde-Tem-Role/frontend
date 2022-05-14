@@ -29,7 +29,7 @@ export class UsuarioEditComponent implements OnInit {
     window.scroll(0, 0)
 
     if (environment.token == '') {
-      this.router.navigate(['/entrar'])
+      this.router.navigate(['/login'])
     }
 
     this.idUsuario = this.route.snapshot.params['id']
@@ -64,9 +64,7 @@ export class UsuarioEditComponent implements OnInit {
     this.usuario.tipo = this.usuario.tipo;
     if (this.usuario.senha != this.confirmarSenha) {
       this.alerta.showAlertDanger('As senhas não conferem');
-    // if(this.usuario.tipo == null){
-    //   alert('Selecione um tipo de usuário antes de prosseguir!')
-    // }
+   
     } else {
       this.authService.atualizar(this.usuario).subscribe({
         next: (resp: Usuario) => {

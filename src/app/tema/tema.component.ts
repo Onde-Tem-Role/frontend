@@ -31,10 +31,10 @@ export class TemaComponent implements OnInit {
       this.router.navigate(['/login'])
     }
 
-    // if(environment.tipo != 'guia') {
-    //   this.alertas.showAlertInfo('Perfil não autorizado')
-    //   this.router.navigate(['/inicio'])
-    // }
+     if(environment.tipo != 'guia') {
+       this.alertas.showAlertInfo('Perfil não autorizado')
+       this.router.navigate(['/inicio'])
+     }
 
     this.findAllTemas()
   }

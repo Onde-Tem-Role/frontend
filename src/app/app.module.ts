@@ -23,6 +23,7 @@ import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UsuarioEditComponent } from './edit/usuario-edit/usuario-edit.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { UsuarioDeleteComponent } from './delete/usuario-delete/usuario-delete.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { OrderModule } from 'ngx-order-pipe';
     TemaDeleteComponent,
     AlertasComponent,
     UsuarioEditComponent,
+    UsuarioDeleteComponent,
 
   ],
   imports: [
