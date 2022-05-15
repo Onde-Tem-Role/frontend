@@ -1,0 +1,71 @@
+<div class="container-fluid p-0">
+  <div class="row">
+
+    <div class="main">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160">
+        <path fill="#095295" fill-opacity="1"
+          d="M0,128L0,160L43.6,160L43.6,128L87.3,128L87.3,128L130.9,128L130.9,128L174.5,128L174.5,224L218.2,224L218.2,32L261.8,32L261.8,160L305.5,160L305.5,160L349.1,160L349.1,256L392.7,256L392.7,96L436.4,96L436.4,256L480,256L480,128L523.6,128L523.6,224L567.3,224L567.3,96L610.9,96L610.9,96L654.5,96L654.5,64L698.2,64L698.2,160L741.8,160L741.8,160L785.5,160L785.5,288L829.1,288L829.1,64L872.7,64L872.7,32L916.4,32L916.4,224L960,224L960,160L1003.6,160L1003.6,128L1047.3,128L1047.3,96L1090.9,96L1090.9,224L1134.5,224L1134.5,64L1178.2,64L1178.2,32L1221.8,32L1221.8,256L1265.5,256L1265.5,96L1309.1,96L1309.1,160L1352.7,160L1352.7,256L1396.4,256L1396.4,160L1440,160L1440,0L1396.4,0L1396.4,0L1352.7,0L1352.7,0L1309.1,0L1309.1,0L1265.5,0L1265.5,0L1221.8,0L1221.8,0L1178.2,0L1178.2,0L1134.5,0L1134.5,0L1090.9,0L1090.9,0L1047.3,0L1047.3,0L1003.6,0L1003.6,0L960,0L960,0L916.4,0L916.4,0L872.7,0L872.7,0L829.1,0L829.1,0L785.5,0L785.5,0L741.8,0L741.8,0L698.2,0L698.2,0L654.5,0L654.5,0L610.9,0L610.9,0L567.3,0L567.3,0L523.6,0L523.6,0L480,0L480,0L436.4,0L436.4,0L392.7,0L392.7,0L349.1,0L349.1,0L305.5,0L305.5,0L261.8,0L261.8,0L218.2,0L218.2,0L174.5,0L174.5,0L130.9,0L130.9,0L87.3,0L87.3,0L43.6,0L43.6,0L0,0L0,0Z">
+        </path>
+      </svg>
+    </div>
+
+    <div class="container"></div>
+    <div class="col-md-6" id="img-bg"></div>
+    <div class="col-md-6 mt-5 mb-5">
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-md-10">
+          <h2 class="text-center">Cadastro</h2>
+
+          <div>
+            <label for="nome">Nome:*</label>
+            <input class="form-control" type="text" nome="nome" id="nome" placeholder="Seu nome"
+              [(ngModel)]='usuario.nome'>
+          </div>
+
+          <div>
+            <label for="usuario">Email:*</label>
+            <input class="form-control" type="text" nome="usuario" id="usuario" placeholder="Seu Email"
+              [(ngModel)]='usuario.usuario' (keyup)="validaEmail()">
+          </div>
+
+          <div>
+            <label for="foto">Link da foto:*</label>
+            <input class="form-control" type="text" nome="foto" id="foto" placeholder="Link da sua foto (opcional)"
+              [(ngModel)]='usuario.foto'>
+          </div>
+
+          <div class="form-row">
+          <div class="col-md-6">
+            <label for="senha">Senha:*</label>
+            <input class="form-control" type="password" nome="senha" id="senha"
+              placeholder="Digite no mínimo 8 caracteres" (input)='confirmSenha($event)'>
+          </div>
+
+          <div class="col-md-6">
+            <label for="confirmSenha">Confirmar Senha:*</label>
+            <input class="form-control" type="password" nome="confirmSenha" id="confirmSenha"
+              placeholder="Confirme sua senha" [(ngModel)]='usuario.senha'>
+          </div>
+        </div>
+
+          <div>
+            <label for="tipo">Tipo de Usuário:*</label>
+            <select class="form-control" name="tipo" id="tipo" (change)='tipoUsuario($event)'>
+              <option>Selecione um tipo de usuário</option>
+              <option value="guia">Guia</option>
+              <option value="turista">Turista</option>
+            </select>
+          </div>
+
+          <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-outline-danger w-25 d-block ml-3" routerLink="/home">Voltar</button>
+            <button class="btn btn-outline-success w-25 d-block ml-3" (click)="cadastrar()">Cadastrar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

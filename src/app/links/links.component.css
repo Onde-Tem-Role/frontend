@@ -1,0 +1,56 @@
+nav {
+  background-color: #095295;
+}
+
+h1 {
+  color: #095295;
+  font-weight: 700;
+}
+
+.card {
+  margin: 4%;
+
+}
+
+.row {
+  min-height: 0;
+}
+
+ul.social-network {
+  list-style: none;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0;
+  padding: 2vh;
+}
+
+.fa {
+  font-size: 35pt;
+  color: white;
+  /* padding: 3vh; */
+}
+
+.fa-facebook-square:hover {
+  color: #3b5998;
+}
+
+.fa-instagram:hover {
+  color: #c13584;
+}
+
+.fa-linkedin-square:hover {
+  color: #0072b1;
+}
+
+.fa-whatsapp:hover{
+  color: #34af23;
+}
+
+.footer-copyright {
+  background-color: #095295;
+}
+
+
