@@ -29,3 +29,12 @@ margin-top: 9%;
   background-repeat: no-repeat;
   background-size: auto;
 }
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+  #img-bg {
+    background-position: top;
+    background-size: 50%;
+    min-height: 30vh;
+  }
+}

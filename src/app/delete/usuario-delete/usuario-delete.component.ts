@@ -23,12 +23,12 @@ export class UsuarioDeleteComponent implements OnInit {
     private alertas: AlertasService,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     window.scroll(0,0)
 
     if(environment.token == ''){
-      this.router.navigate(['/home'])
+      this.router.navigate(['/login'])
     }
 
     this.idUsuario = this.route.snapshot.params['id']
@@ -44,7 +44,8 @@ export class UsuarioDeleteComponent implements OnInit {
   apagar() {
     this.authService.deleteUsuario(this.idUsuario).subscribe(() => {
       this.alertas.showAlertSuccess('Usuário apagado com sucesso!')
-      this.router.navigate(['/home'])
+      environment.token = ''
+        this.router.navigate(['/home'])
     })
   }
 

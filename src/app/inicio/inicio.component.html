@@ -88,7 +88,7 @@
 
           <a (click)="findByIdUsuario()" class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
 
-          <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por Tema</a>
+          <a (click)="findByIdUsuario()" class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por Tema</a>
       </div>
     </nav>
  <!-- !Fim tela de inicio -->
@@ -112,11 +112,12 @@
             <div class="card-body">
               <img class="rounded-circle
             " [src]="item.foto"
-              onerror="" this.src = 'https://i.imgur.com/B5HQ94B.gif'
-              alt="Foto do usuario" width="35px" height="35px">
-              <h5 class="card-title m-0">{{item.tipoTurismo}}</h5>
-              <small class="text-muted"> Tema: {{item.tema.tipo}}</small>
-              <p class="card-text mt-3">{{item.texto}}</p>
+              onerror="this.src = 'https://i.imgur.com/B5HQ94B.gif'"
+              alt="Foto do usuario" width="100px" height="100px">
+              <h5 class="card-title m-0">Local: {{item.local}}</h5>
+              <small class="text-muted">Tipo de Turismo: {{item.tipoTurismo}}</small>
+              <p class="text-muted"> Tema: {{item.tema.tipo}}</p>
+              <p class="card-text mt-3">Descrição: {{item.texto}}</p>
               <p class="card-text mt-3">{{item.contato}}</p>
               <p class="card-text mt-3"><a>R$ </a>{{item.valor}}</p>
               <p class="card-text"><small class="text-muted">
@@ -142,7 +143,7 @@
               <h5 class="card-title m-0">{{item.local}}</h5>
               <p class="card-text mt-3">{{item.tipoTurismo}}</p>
               <small class="text-muted"> Tema: {{item.tema.tipo}}</small>
-              <p class="card-text mt-3">{{item.texto}}</p>
+              <p class="card-text mt-3">Descrição: {{item.texto}}</p>
               <p class="card-text"><small class="text-muted">
                 {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
               </small></p>
@@ -173,11 +174,12 @@
             <div class="card-body">
               <img class="rounded-circle
               " [src]="item.foto"
-                onerror="" this.src = 'https://i.imgur.com/B5HQ94B.gif'
-                alt="Foto do usuario" width="35px" height="35px">
-                <h5 class="card-title m-0">{{tema.tipo}}</h5>
-                <p class="card-title m-0">{{item.tipoTurismo}}</p>
-                <p class="card-text mt-3">{{item.texto}}</p>
+                onerror="this.src = 'https://i.imgur.com/B5HQ94B.gif'"
+                alt="Foto do usuario" width="100px" height="100px">
+                <h5 class="card-title m-0">Tema: {{tema.tipo}}</h5>
+                <p class="card-title m-0">Tipo de Turismo: {{item.tipoTurismo}}</p>
+                <p class="card-text mt-3">Local: {{item.local}}</p>
+                <p class="card-text mt-3">Descrição: {{item.texto}}</p>
                 <p class="card-text mt-3">{{item.contato}}</p>
                 <p class="card-text mt-3">R$: {{item.valor}}</p>
                 <p class="card-text"><small class="text-muted">

@@ -94,3 +94,10 @@ ul.social-network li {
 .fa-whatsapp:hover{
   color: #34af23;
 }
+
+@media (min-width: 320px) and (max-width: 768px) {
+
+  #img-bg {
+      display: none;
+}
+}
