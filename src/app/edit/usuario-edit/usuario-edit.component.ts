@@ -61,10 +61,11 @@ export class UsuarioEditComponent implements OnInit {
   }
 
   atualizar(){
-    this.usuario.tipo = this.usuario.tipo;
+    this.usuario.tipo = this.tipoUsuario;
+    console.log(this.usuario)
     if (this.usuario.senha != this.confirmarSenha) {
       this.alerta.showAlertDanger('As senhas não conferem');
-   
+
     } else {
       this.authService.atualizar(this.usuario).subscribe({
         next: (resp: Usuario) => {
@@ -89,6 +90,7 @@ export class UsuarioEditComponent implements OnInit {
   findByIdUsuario(id: number) {
     this.authService.getByIdUsuario(id).subscribe((resp: Usuario) => {
       this.usuario = resp
+      this.usuario.senha = ''
     })
   }
 }
