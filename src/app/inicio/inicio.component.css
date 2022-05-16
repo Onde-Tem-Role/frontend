@@ -6,3 +6,17 @@ h1{
   color: #095295;
   font-weight: 700;
 }
+
+.rounded img {
+  min-width: 250px;
+  min-height: 150px;
+  max-width: 302px;
+  max-height: 300px;
+  padding-top: 76px;
+  padding-bottom: 76px;
+  margin-bottom: 39px;
+}
+
+.container img:hover{
+  transform: scale(2.5);
+}

@@ -18,8 +18,8 @@
           <h2 class="text-center">Cadastro</h2>
 
           <div>
-            <label for="nome">Nome:*</label>
-            <input class="form-control" type="text" nome="nome" id="nome" placeholder="Seu nome"
+            <label for="nome">Nome Completo:*</label>
+            <input class="form-control" type="text" nome="nome" id="nome" placeholder="Mínimo 4 Caracteres"
               [(ngModel)]='usuario.nome'>
           </div>
 
@@ -30,7 +30,7 @@
           </div>
 
           <div>
-            <label for="foto">Link da foto:*</label>
+            <label for="foto">Link da foto:</label>
             <input class="form-control" type="text" nome="foto" id="foto" placeholder="Link da sua foto (opcional)"
               [(ngModel)]='usuario.foto'>
           </div>
@@ -39,7 +39,7 @@
           <div class="col-md-6">
             <label for="senha">Senha:*</label>
             <input class="form-control" type="password" nome="senha" id="senha"
-              placeholder="Digite no mínimo 8 caracteres" (input)='confirmSenha($event)'>
+              placeholder="Mínimo 8 caracteres" (input)='confirmSenha($event)'>
           </div>
 
           <div class="col-md-6">

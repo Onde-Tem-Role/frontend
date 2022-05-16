@@ -110,7 +110,7 @@
         <div class="card-columns">
           <div class="card text-center" *ngFor='let item of listaPostagem | orderBy : key : reverse'>
             <div class="card-body">
-              <img class="rounded-circle
+              <img class="rounded
             " [src]="item.foto"
               onerror="this.src = 'https://i.imgur.com/B5HQ94B.gif'"
               alt="Foto do usuario" width="100px" height="100px">
@@ -242,7 +242,7 @@
   <label for="tipoTurismo">Tipo Turismo*</label>
   <select [(ngModel)]="postagem.tipoTurismo" class="form-control" name="texto" id="tipoTurismo" rows="3">
     <option>Virtual</option>
-    <option>Físico</option>
+    <option>Fisico</option>
   </select>
 </div>
 

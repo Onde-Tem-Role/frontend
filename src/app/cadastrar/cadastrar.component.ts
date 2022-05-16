@@ -42,7 +42,11 @@ export class CadastrarComponent implements OnInit {
         this.usuario = resp
         this.alertas.showAlertSuccess('Usuário cadastrado com sucesso!')
         this.router.navigate(['/login']);
-        }
+        },
+        error: (erro) => {
+          if(erro.status == 400) {
+            this.alertas.showAlertDanger('Preencha todos os campos corretamente para cadastrar um usuario!')
+          }}
         })
   }
 }
